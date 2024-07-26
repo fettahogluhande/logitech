@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: logitech-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: logitech
+  template:
+    metadata:
+      labels:
+        app: logitech
+    spec:
+      containers:
+      - name: logitech-container
+        image: fettahogluhande/logitech:latest # Docker Hub'dan çekilecek imaj
+        ports:
+        - containerPort: 80
